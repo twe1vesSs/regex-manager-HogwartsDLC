@@ -1,125 +1,161 @@
-/* Контейнер всего расширения */
-.regex-manager-settings {
-  margin-bottom: 15px;
-  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-}
-
-/* Шапка (Магический заголовок) */
-.regex-manager-settings .inline-drawer-header {
-  border: 1px solid rgba(201, 162, 39, 0.4) !important;
-  color: #c9a227 !important;
-  background: rgba(201, 162, 39, 0.05) !important;
-}
-
-/* Описание */
 .regex-manager-desc {
   font-size: 12px;
-  color: #e2d1a6;
+  color: #e2d1a6; /* Старый пергамент */
   margin-bottom: 12px;
-  padding: 10px;
+  padding: 8px 10px;
   background: rgba(201, 162, 39, 0.1);
   border-radius: 6px;
-  border-left: 3px solid #c9a227;
-  line-height: 1.4;
+  border-left: 3px solid #c9a227; /* Золото */
 }
 
-/* Кнопки управления */
+.regex-manager-desc b {
+  color: #c9a227;
+}
+
+.regex-manager-settings {
+  margin-bottom: 10px;
+}
+
 .regex-manager-controls {
   display: flex;
-  gap: 10px;
-  margin-bottom: 15px;
+  gap: 8px;
+  margin-bottom: 10px;
 }
 
 .regex-manager-controls .menu_button {
   flex: 1;
-  padding: 8px !important;
-  border-radius: 6px !important;
-  background: var(--black70a) !important;
-  border: 1px solid var(--SmartThemeBorderColor) !important;
-  color: var(--SmartThemeBodyColor) !important;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 6px;
 }
 
 .regex-manager-controls .menu_button.active {
-  border-color: #c9a227 !important;
-  color: #c9a227 !important;
-  background: rgba(201, 162, 39, 0.15) !important;
-  box-shadow: 0 0 8px rgba(201, 162, 39, 0.2);
+  background: rgba(201, 162, 39, 0.2);
+  border-color: #c9a227;
+  color: #c9a227;
 }
 
-/* Список плашек (паков) */
+.regex-manager-controls .menu_button.inactive {
+  background: rgba(142, 34, 50, 0.2); /* Темно-бордовый */
+  border-color: #8e2232;
+  color: #8e2232;
+}
+
+.regex-manager-section h4 {
+  margin: 10px 0;
+  color: #c9a227; /* Золото */
+  font-size: 13px;
+}
+
 #regex-manager-list {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-top: 10px;
 }
 
-/* Сами плашки (исправляем вид) */
-.regex-pack-item {
+/* Элемент списка (плашка) - ИСПРАВЛЕНО */
+.regex-pack {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.2s;
+}
+
+.regex-pack:hover {
+  background: rgba(201, 162, 39, 0.05);
+  border-color: rgba(201, 162, 39, 0.3);
+}
+
+.regex-pack .checkbox-label {
   display: flex;
   align-items: center;
-  padding: 12px 15px !important;
-  background: rgba(0, 0, 0, 0.3) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  border-radius: 8px !important;
+  gap: 8px;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
 }
 
-.regex-pack-item:hover {
-  background: rgba(201, 162, 39, 0.05) !important;
-  border-color: rgba(201, 162, 39, 0.4) !important;
+.regex-pack-name {
+  font-weight: bold;
+  color: #e2d1a6;
 }
 
-/* Когда плашка включена */
-.regex-pack-item.enabled {
-  border-color: #c9a227 !important;
-  background: rgba(201, 162, 39, 0.1) !important;
-  box-shadow: inset 0 0 10px rgba(201, 162, 39, 0.05);
+.regex-pack-desc {
+  font-size: 11px;
+  color: #888;
+  margin-top: 4px;
+  margin-left: 24px;
 }
 
-.pack-info {
-  flex: 1;
+.regex-pack-count {
+  font-size: 10px;
+  color: #666;
+  margin-top: 2px;
+  margin-left: 24px;
+}
+
+/* Цвета для включенных чекбоксов */
+.regex-pack input[type="checkbox"] {
+  accent-color: #c9a227;
+}
+
+.regex-pack input[type="checkbox"]:disabled + .regex-pack-name {
+  opacity: 0.5;
+}
+
+/* Debugger styles - в стиле Хогвартса */
+.regex-manager-debugger {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 15px;
 }
 
-.pack-name {
-  font-weight: bold;
-  font-size: 14px;
-  color: #e2d1a6; /* Золотисто-бежевый */
+.debugger-section h4 {
+  margin: 0 0 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #c9a227;
 }
 
-.pack-desc {
-  font-size: 11px;
-  color: #999;
-}
-
-/* Статус ВКЛ/ВЫКЛ на плашке */
-.pack-status {
-  font-size: 10px;
-  font-weight: bold;
-  padding: 4px 8px;
+.debugger-rules {
+  max-height: 150px;
+  overflow-y: auto;
+  border: 1px solid rgba(201, 162, 39, 0.2);
   border-radius: 5px;
-  background: #222;
-  color: #666;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  padding: 5px;
+  background: var(--black30a);
 }
 
-.enabled .pack-status {
-  background: #c9a227 !important;
+.rule-num {
+  background: #c9a227 !important; /* Золотая метка */
   color: #000 !important;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 10px;
+  min-width: 20px;
+  text-align: center;
 }
 
-/* Разделитель */
-.regex-manager-settings hr {
-  border: 0;
-  border-top: 1px solid rgba(201, 162, 39, 0.2);
-  margin: 15px 0;
+.step-ok {
+  background: rgba(201, 162, 39, 0.1);
+}
+
+.step-ok-msg {
+  color: #c9a227;
+  margin-left: auto;
+}
+
+.step-error {
+  background: rgba(142, 34, 50, 0.1);
+}
+
+.step-error-msg {
+  color: #8e2232;
+  margin-left: auto;
 }
