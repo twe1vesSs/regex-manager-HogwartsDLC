@@ -1,25 +1,12 @@
 {
   "name": "phone",
-  "description": "Hogwarts Letter Transformation",
+  "description": "Hogwarts Letter in Envelope",
   "scripts": [
     {
-      "id": "ph-clean-quotes",
-      "scriptName": "┌ phone clean quotes",
-      "findRegex": "/((?:M[<>]|MST[<>]|MSI[<>]|NF)\\|[^|]*\\|)\"([^\"]+)\"/g",
-      "replaceString": "$1$2",
-      "trimStrings": [],
-      "placement": [1, 2, 6],
-      "disabled": false,
-      "markdownOnly": true,
-      "promptOnly": false,
-      "runOnEdit": true,
-      "substituteRegex": 0
-    },
-    {
       "id": "ph-open",
-      "scriptName": "├ phone open",
-      "findRegex": "/<ph>([^|]+)\\|([^|]+)\\|([\\s\\S]+?)<\\/ph>/g",
-      "replaceString": "<style>@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,700;1,400&family=Great+Vibes&display=swap'); .letter-body{background:#f4e4bc;background-image:url('https://www.transparenttextures.com/patterns/old-map.png');color:#3d2b1f;padding:40px 30px;font-family:'Crimson Text',serif;border-radius:2px;box-shadow:0 0 20px rgba(0,0,0,0.5), inset 0 0 100px rgba(139,105,79,0.3);position:relative;border:1px solid #d4b483;margin:20px 0;line-height:1.6}.letter-header{font-family:'Great Vibes',cursive;font-size:2.2em;text-align:center;margin-bottom:20px;border-bottom:1px double #3d2b1f;padding-bottom:10px}.letter-seal{position:absolute;bottom:-20px;right:20px;width:60px;height:60px;background:#8b0000;border-radius:50%;box-shadow:2px 2px 5px rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;color:#f4e4bc;font-weight:bold;border:3px solid #660000;z-index:10;transform:rotate(-15deg);font-size:0.8em;text-align:center;line-height:1}</style><div class='letter-body'><div class='letter-header'>$1</div><div class='letter-content'>$3</div><div class='letter-seal'>🦉<br>HOGWARTS</div></div>",
+      "scriptName": "┌ phone open (envelope)",
+      "findRegex": "/<ph>([^|]+)\\|([^|]+)\\|([^\\n<]+)[\\s\\S]*?<ms>([^|]+)\\|([^\\n<]+)([\\s\\S]+?)<\\/ms>[\\s\\S]*?<\\/ph>/g",
+      "replaceString": "<style>@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,700;1,400&family=Great+Vibes&display=swap'); .letter-container{position:relative;width:100%;max-width:400px;margin:40px auto;filter:drop-shadow(0 10px 15px rgba(0,0,0,0.3))}.letter-paper{background:#f4e4bc;background-image:url('https://www.transparenttextures.com/patterns/old-map.png');color:#3d2b1f;padding:30px 25px 80px 25px;font-family:'Crimson Text',serif;border-radius:2px;box-shadow:inset 0 0 50px rgba(139,105,79,0.2);position:relative;border:1px solid #d4b483;z-index:1;margin-bottom:-60px}.letter-header{font-family:'Great Vibes',cursive;font-size:1.8em;text-align:center;border-bottom:1px double #3d2b1f;margin-bottom:15px;padding-bottom:5px}.envelope-front{position:relative;height:100px;background:#c4a484;border-radius:0 0 5px 5px;z-index:2;box-shadow:0 -5px 15px rgba(0,0,0,0.2);border:1px solid #a68b6d;display:flex;align-items:center;justify-content:center}.envelope-front::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg, transparent 45%, rgba(0,0,0,0.05) 50%, transparent 55%)}.letter-seal-red{width:50px;height:50px;background:#8b0000;border-radius:50%;border:3px solid #660000;box-shadow:0 2px 5px rgba(0,0,0,0.4);display:flex;align-items:center;justify-content:center;color:#f4e4bc;font-size:1.2em;transform:rotate(-10deg)}</style><div class='letter-container'><div class='letter-paper'><div class='letter-header'>Для: $4</div><div style='font-size:0.8em;text-align:right;margin-bottom:15px;opacity:0.7'>Отправлено: $2 | Заряд: $3</div><div class='letter-content'>$6</div></div><div class='envelope-front'><div class='letter-seal-red'>🦉</div></div></div>",
       "trimStrings": [],
       "placement": [1, 2, 6],
       "disabled": false,
@@ -29,10 +16,10 @@
       "substituteRegex": 0
     },
     {
-      "id": "ph-msg-incoming",
-      "scriptName": "├ message incoming",
-      "findRegex": "/M<\\|([^|]*)\\|([^<]+)/g",
-      "replaceString": "<div style='margin-bottom:15px;border-left:2px solid #3d2b1f;padding-left:10px'><b style='font-family:\"Great Vibes\", cursive; font-size:1.2em'>$1:</b><br><span style='font-style:italic'>«$2»</span></div>",
+      "id": "ph-msg-mst",
+      "scriptName": "├ message MST (incoming)",
+      "findRegex": "/MST<\\|([^|]*)\\|([^<\\n]+)/g",
+      "replaceString": "<div style='margin-bottom:12px;border-left:2px solid #3d2b1f;padding-left:10px'><small style='font-family:\"Crimson Text\";opacity:0.6'>$1</small><br><span style='font-style:italic'>«$2»</span></div>",
       "trimStrings": [],
       "placement": [1, 2, 6],
       "disabled": false,
@@ -42,10 +29,10 @@
       "substituteRegex": 0
     },
     {
-      "id": "ph-msg-outgoing",
-      "scriptName": "├ message outgoing",
-      "findRegex": "/M>\\|([^|]*)\\|([^<]+)/g",
-      "replaceString": "<div style='margin-bottom:15px;text-align:right;border-right:2px solid #8b0000;padding-right:10px'><b style='font-family:\"Great Vibes\", cursive; font-size:1.2em'>Вы:</b><br><span>$2</span></div>",
+      "id": "ph-msg-m-out",
+      "scriptName": "├ message M (outgoing)",
+      "findRegex": "/M>\\|([^|]*)\\|([^<\\n]+)/g",
+      "replaceString": "<div style='margin-bottom:12px;text-align:right;border-right:2px solid #8b0000;padding-right:10px'><small style='opacity:0.6'>$1</small><br><span>$2</span></div>",
       "trimStrings": [],
       "placement": [1, 2, 6],
       "disabled": false,
@@ -55,23 +42,10 @@
       "substituteRegex": 0
     },
     {
-      "id": "ph-nt-open",
-      "scriptName": "├ notes open",
-      "findRegex": "/<nt>([\\s\\S]*?)<\\/nt>/g",
-      "replaceString": "<div style='background:rgba(0,0,0,0.05);padding:15px;border:1px dashed #3d2b1f;margin-top:20px;font-size:0.9em'><center>📜 <b>Приписка на полях:</b></center><br>$1</div>",
-      "trimStrings": [],
-      "placement": [1, 2, 6],
-      "disabled": false,
-      "markdownOnly": true,
-      "promptOnly": false,
-      "runOnEdit": true,
-      "substituteRegex": 0
-    },
-    {
-      "id": "ph-nt-item",
-      "scriptName": "├ notes item",
-      "findRegex": "/(<nt>[\\s\\S]*?)^\\*\\s*(.+)$([\\s\\S]*?<\\/nt>)/gm",
-      "replaceString": "$1<div style='display:flex;align-items:center;gap:8px;margin:5px 0'><span style='color:#8b0000'>✒️</span> $2</div>$3",
+      "id": "ph-clean-tail",
+      "scriptName": "└ clean tail",
+      "findRegex": "/M~\\|/g",
+      "replaceString": "<hr style='border:0;border-top:1px dashed rgba(61,43,31,0.2);margin:10px 0'>",
       "trimStrings": [],
       "placement": [1, 2, 6],
       "disabled": false,
