@@ -2,7 +2,7 @@ import { saveSettingsDebounced } from "../../../../script.js";
 import { extension_settings } from "../../../extensions.js";
 import { callGenericPopup, POPUP_TYPE } from "../../../popup.js";
 
-const extensionName = "regex-manager";
+const extensionName = "regex-manager-HogwartsDLC";
 
 if (!window.RegexManagerData) {
   window.RegexManagerData = {
