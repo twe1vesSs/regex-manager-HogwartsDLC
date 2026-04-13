@@ -1,12 +1,12 @@
 {
   "name": "clocks",
-  "description": "Магические часы Хогвартса — дата, день, локация, погода, время, одежда, сцена",
+  "description": "Hogwarts Clocks — Магический стиль (Inline CSS)",
   "scripts": [
     {
       "id": "b78aa039-bcbb-4126-a847-195acd852d60",
       "scriptName": "┌ clocks",
       "findRegex": "/<info>\\\\s*([^|]+?)\\\\s*\\\\|\\\\s*([^|]+?)\\\\s*\\\\|\\\\s*([^|]+?)\\\\s*\\\\|\\\\s*([^|]+?)\\\\s*\\\\|\\\\s*([^§¶]+?)\\\\s*(§[\\\\s\\\\S]+?)\\\\s*(¶[^<]+)<\\\\/info>/gi",
-      "replaceString": "<style>.clk{position:relative;background:linear-gradient(160deg,#1e1d1d,#171616);color:#d4ccc4;font-family:Georgia,serif;padding:16px;padding-top:24px;border-radius:14px;box-shadow:0 0 15px rgba(201,162,39,0.1), 0 0 30px rgba(0,0,0,0.5);border:1px solid rgba(201,162,39,0.3);margin:10px 0;line-height:1.4}.clk::before{content:'🪄';position:absolute;top:8px;right:12px;font-size:14px;opacity:0.6}.clk-t{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid rgba(201,162,39,0.2);padding-bottom:8px;margin-bottom:10px}.clk-date{font-weight:bold;color:#c9a227;text-transform:uppercase;letter-spacing:1px;font-size:0.9em}.clk-day{font-style:italic;color:#a84a5a;font-size:0.85em}.clk-loc{display:flex;align-items:center;gap:6px;color:#e2d1a6;font-size:0.95em;margin-bottom:4px}.clk-w{font-size:0.85em;color:#888}.clk-time{font-family:monospace;font-size:1.2em;color:#c9a227;text-shadow:0 0 8px rgba(201,162,39,0.3)}.clk-out{margin-top:8px;padding-top:8px;border-top:1px dashed rgba(255,255,255,0.1);font-size:0.9em}.clk-sc{margin-top:6px;font-style:italic;color:#9a9292;font-size:0.85em;border-left:2px solid #a84a5a;padding-left:8px}</style><div class=\"clk\"><div class=\"clk-t\"><div class=\"clk-date\">$1</div><div class=\"clk-day\">$2</div></div><div class=\"clk-loc\"><span>📍</span> $3</div><div class=\"clk-w\">$4 <span style=\"color:#a84a5a\">•</span> <span style=\"color:#c9a227\">$5</span></div><div class=\"clk-time\">$6 $7</div></div>",
+      "replaceString": "<div style=\"position:relative; background:linear-gradient(160deg,#1e1d1d,#171616); color:#d4ccc4; font-family:Georgia,serif; padding:18px; border-radius:14px; box-shadow:0 0 15px rgba(201,162,39,0.1); border:1px solid rgba(201,162,39,0.3); margin:10px 0; line-height:1.4;\"><div style=\"display:flex; justify-content:space-between; align-items:baseline; border-bottom:1px solid rgba(201,162,39,0.2); padding-bottom:8px; margin-bottom:10px;\"><div style=\"font-weight:bold; color:#c9a227; text-transform:uppercase; letter-spacing:1px; font-size:13px;\">$1</div><div style=\"font-style:italic; color:#a84a5a; font-size:12px;\">$2</div></div><div style=\"display:flex; align-items:center; gap:6px; color:#e2d1a6; font-size:14px; margin-bottom:4px;\">📍 $3</div><div style=\"font-size:12px; color:#888;\">$4 <span style=\"color:#a84a5a\">•</span> <span style=\"color:#c9a227\">$5</span></div><div style=\"font-family:monospace; font-size:18px; color:#c9a227; text-shadow:0 0 8px rgba(201,162,39,0.3); margin-top:5px;\">$6 $7</div></div>",
       "trimStrings": [],
       "placement": [1, 2, 6],
       "disabled": false,
@@ -21,7 +21,7 @@
       "id": "2306f5dd-48b9-4dd7-826d-b53bf7a10b26",
       "scriptName": "├ clocks outfit",
       "findRegex": "/§\\\\s*([^:]+?)\\\\s*:\\\\s*([^§¶<]+)/g",
-      "replaceString": "<div class=\"clk-out\"><span style=\"color:#c9a227\">$1:</span> <span style=\"color:#9a9292\">$2</span></div>",
+      "replaceString": "<div style=\"margin-top:8px; padding-top:8px; border-top:1px dashed rgba(255,255,255,0.1); font-size:13px;\"><span style=\"color:#c9a227\">$1:</span> <span style=\"color:#9a9292\">$2</span></div>",
       "trimStrings": [],
       "placement": [1, 2, 6],
       "disabled": false,
@@ -36,7 +36,7 @@
       "id": "ff20beaf-c89b-4404-9464-92758f628461",
       "scriptName": "└ clocks scene",
       "findRegex": "/¶\\\\s*([^<]+)/g",
-      "replaceString": "<div class=\"clk-sc\">$1</div>",
+      "replaceString": "<div style=\"margin-top:6px; font-style:italic; color:#9a9292; font-size:12px; border-left:2px solid #a84a5a; padding-left:8px;\">$1</div>",
       "trimStrings": [],
       "placement": [1, 2, 6],
       "disabled": false,
