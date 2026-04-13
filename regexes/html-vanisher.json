@@ -1,0 +1,51 @@
+{
+  "name": "html vanisher",
+  "description": "Удаляет HTML-теги и CSS из промпта",
+  "scripts": [
+    {
+      "id": "a030ee87-57b5-4d6f-9981-114f6da3b2e4",
+      "scriptName": "┌ html vanisher",
+      "findRegex": "/<(?!\\/?(?:psy|ch|info|memo|ph|app|lk|ms|tw|ig|nt|diary|img)\\b)[^>]+>/g",
+      "replaceString": "",
+      "trimStrings": [],
+      "placement": [1, 2, 3],
+      "disabled": false,
+      "markdownOnly": false,
+      "promptOnly": true,
+      "runOnEdit": true,
+      "substituteRegex": 0,
+      "minDepth": 2,
+      "maxDepth": null
+    },
+    {
+      "id": "34e298db-389d-4c36-8886-3c381a7f7a1f",
+      "scriptName": "├ html vanisher",
+      "findRegex": "/@keyframes[\\s\\S]*?\\}\\s*\\}/g",
+      "replaceString": "",
+      "trimStrings": [],
+      "placement": [1, 2, 3],
+      "disabled": false,
+      "markdownOnly": false,
+      "promptOnly": true,
+      "runOnEdit": true,
+      "substituteRegex": 0,
+      "minDepth": 2,
+      "maxDepth": null
+    },
+    {
+      "id": "f301a341-6ac4-45cc-be3d-9b6db2a464d4",
+      "scriptName": "└ html vanisher (Fixed)",
+      "findRegex": "/[#.][a-zA-Z0-9_-]+[^{}\\r\\n]*\\{[^}]+\\}/g",
+      "replaceString": "",
+      "trimStrings": [],
+      "placement": [1, 2, 3],
+      "disabled": false,
+      "markdownOnly": false,
+      "promptOnly": true,
+      "runOnEdit": true,
+      "substituteRegex": 0,
+      "minDepth": 2,
+      "maxDepth": null
+    }
+  ]
+}

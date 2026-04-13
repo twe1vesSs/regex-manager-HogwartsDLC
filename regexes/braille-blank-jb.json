@@ -1,0 +1,36 @@
+{
+  "name": "braille blank jb",
+  "description": "Заменяет пробелы на брайль-символы для JB и обратно",
+  "scripts": [
+    {
+      "id": "7b067c28-ba1f-4772-99ff-fe568e88e0dd",
+      "scriptName": "┌ braille blank jb",
+      "findRegex": "/ /g",
+      "replaceString": "⠀",
+      "trimStrings": [],
+      "placement": [1],
+      "disabled": false,
+      "markdownOnly": false,
+      "promptOnly": true,
+      "runOnEdit": true,
+      "substituteRegex": 0,
+      "minDepth": null,
+      "maxDepth": null
+    },
+    {
+      "id": "d24c7656-1946-418a-afdf-842270cf7d50",
+      "scriptName": "└ braille blank jb",
+      "findRegex": "/⠀/g",
+      "replaceString": " ",
+      "trimStrings": [],
+      "placement": [2, 6],
+      "disabled": false,
+      "markdownOnly": true,
+      "promptOnly": false,
+      "runOnEdit": true,
+      "substituteRegex": 0,
+      "minDepth": null,
+      "maxDepth": null
+    }
+  ]
+}
